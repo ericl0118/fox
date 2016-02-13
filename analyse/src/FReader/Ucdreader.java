@@ -46,11 +46,9 @@ public class Ucdreader{
 		flag++;
 		int tokennumber=0;
 		tokens = s.split(delims);
-		System.out.print("String:"+flag+" "+s+" \n");
 		for(String part : tokens){
 			
 			tokennumber++;
-			System.out.print("Token"+tokennumber+":"+part+" \n");
 		}
 		
 		switch(tokens[0]){
@@ -80,17 +78,13 @@ public class Ucdreader{
 			
 			
 		case "GENERALIZATION":
-			System.out.print("in generalisation loop! \n");
-			System.out.print("class name in gene is :"+tokens[1]+"\n");
 			Classes g = new Classes(tokens[1]);
 			Generalisation gls = new Generalisation(g);
 			ucdgene.add(gls);
 				s=br.readLine();
 				tokens = s.split(delims);
-				System.out.print("testing generalisation token[0]:"+s+"\n");
 				for(int i=0;i<tokens.length;i++){ 
 					if(!tokens[i].isEmpty()&&!tokens[i].equals("SUBCLASSES")){
-						System.out.print("find token:"+tokens[i]+"@"+i+"\n");
 						gls.addSubclass(new Classes(tokens[i]));
 					}
 				}
@@ -102,7 +96,6 @@ public class Ucdreader{
 			br.readLine();
 			s=br.readLine();
 			tokens = s.split(delims);
-			System.out.print("relation testing :"+tokens[2]+tokens[3]+"\n");
 			rlt.setFRole(new Role(tokens[2],tokens[3]));
 			s=br.readLine();
 			tokens = s.split(delims);
@@ -112,11 +105,9 @@ public class Ucdreader{
 			
 		case "AGGREGATION":
 			Aggregation agr = new Aggregation();
-			System.out.print("now in aggregation loop ! \n");
 			ucdagg.add(agr);
 			s=br.readLine();
 			tokens =s.split(delims);
-			System.out.print("aggregation testing !!!"+s+"\n");
 			if(tokens[0].equals("CONTAINER")){
 				
 				while(!(s=br.readLine()).equals("PARTS")){
