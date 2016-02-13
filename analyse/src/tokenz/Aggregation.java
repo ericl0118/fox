@@ -6,7 +6,7 @@ public class Aggregation extends Token {
 	
 	public Aggregation(){
 		super("AGGREGATION");
-		
+		this.part = new ArrayList<Role>();
 	}
 	
 	

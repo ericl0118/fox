@@ -7,6 +7,8 @@ public class Classes extends Token{
 	public Classes(String name){
 		super("CLASS");
 		this.name=name;
+		this.operations = new ArrayList<String>();
+		this.attributes = new ArrayList<String>();
 	}
 	private String name;
 	private ArrayList<String> operations;

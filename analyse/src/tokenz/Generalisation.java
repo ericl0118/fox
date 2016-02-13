@@ -7,6 +7,7 @@ public class Generalisation extends Token{
 	public Generalisation(Classes c){
 		super("GENERALISATION");
 		this.name=c.getName();	
+		this.Subclass = new ArrayList<Classes>();
 	}
 	private String name;
 	
@@ -18,6 +19,10 @@ public class Generalisation extends Token{
 	
 	public void addSubclass(Classes c){
 		this.Subclass.add(c);
+	}
+	
+	public ArrayList<Classes> getSubclass(){
+		return this.Subclass;
 	}
 	
 }
