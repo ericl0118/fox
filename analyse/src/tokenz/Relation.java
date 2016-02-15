@@ -48,7 +48,7 @@ public class Relation extends Token{
 	public String Detail(Classes c){
 		String s ="";
 		if(!brief(c).equals("")){
-		s = s + "RELATION "+this.getRName()+"\n"+"\t ROLES \n"+"\t CLASS" +this.firstrole.toString()+",\n\t CLASS"+this.secondrole.toString();
+		s = s + "RELATION "+this.getRName()+"\n"+"\t ROLES \n\t\t"+ this.firstrole.toString()+",\n\t\t"+this.secondrole.toString();
 		}
 		return s;
 	}

@@ -21,24 +21,28 @@ public class Test {
 	j++;	
 	}
 	for(Generalisation g : urd.ucdgene){
-		System.out.print("\n\nGENERALISATION N# :"+v+":\n");
-		System.out.print("class read :"+g.getGName()+"\n");
+	System.out.print("\n\nGENERALISATION N# :"+v+":\n");
+	System.out.print("class read :"+g.getGName()+"\n");
 		for(Classes x :  g.getSubclass()){
 			System.out.print("subclass read :"+x.getName()+"\n");
 		}
 		v++;	
-		}
+	}
 	for(Relation r : urd.ucdrela){
 	System.out.print("\n\nRELATION N# :"+i+":\n");
 	System.out.print("class read :"+r.getRName()+"\n");
 	System.out.print("first role read :"+r.getFRole().toString()+"\n");
 	System.out.print("second role read :"+r.getSRole().toString()+"\n");
+	System.out.print("test brief :"+r.brief(urd.ucdclass.get(0))+"\n");
+	System.out.print("test detail :"+r.Detail(urd.ucdclass.get(0)));
 	i++;
 	}
 	for(Aggregation a : urd.ucdagg){
 		System.out.print("\n\nAGGREGATION N# :"+k+":\n");
 		System.out.print("container read :"+a.getContain()+"\n");
 		System.out.print("parts read :"+a.getPart()+"\n");
+		System.out.print("test brief : "+a.brief(urd.ucdclass.get(0))+"\n");
+		System.out.print("test detail :"+a.Detail(urd.ucdclass.get(0)));
 		k++;
 		}
 	}

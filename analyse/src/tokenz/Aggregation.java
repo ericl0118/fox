@@ -30,25 +30,31 @@ public class Aggregation extends Token {
 		return this.part;
 	}
 	
+	public String allPartsToString(){
+		String s = "";
+		for(Role pa : this.part){
+			s+="\t\t" + pa.toString()+"\n";
+		}
+		return s;
+	}
 	
 	public String brief(Classes c){
 		String s ="";
-		String cp = "";
-		if(c.getName().equals(this.container.getClassname())){cp="C_";
+		if(c.getName().equals(this.container.getClassname())){
+			for(int i =0 ; i < this.part.size();i++){
+				s = s + "(A)P_"+this.getPart().get(i).getClassname()+"\n";
+			}
 		}
-		else {cp = "P_";}
-		if(c.getName().equals("")){
-			return s;
-			}
-		else {
-			return s + cp + c.getName();
-			}
+		else for(Role pa : this.getPart()){
+			if(pa.getClassname().equals(c.getName())){
+			s = s+ "(A)C_"+this.container.getClassname();}}
+		return s;
 	}
 	
 	public String Detail(Classes c){
 		String s ="";
 		if(!brief(c).equals("")){
-		s = s + "AGGREGATION "+"\n"+"\t CONTAINER \n"+"\t CLASS" +this.container.toString()+",\n\t PART"+this.part.toString();
+		s = s + "AGGREGATION "+"\n"+"\t CONTAINER \n"+"\t\t" +this.container.toString()+",\n\t PART \n"+this.allPartsToString();
 		}
 		return s;
 	}
